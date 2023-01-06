@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/512/todo-list.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="overlay"></div>
+    <div class="container">
+        <div class="title">
+            <h1>Blaze's To-Do's</h1>
+            <img src="https://cdn-icons-png.flaticon.com/512/2827/2827420.png" alt="">
+        </div>
+        <div class="container-body">
+            <a href="#" class="toggle-button" id="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <nav class="navbar" id="navbar">
+                <div class="navbar-top">
+                    <a href="#" id="homeTab">Home</a>
+                    <a href="#" id="todayTab">Today</a>
+                    <a href="#" id="weekTab">Week</a>
+                    <!-- <span class="nav-project-container">Projects</span>
+                    <ul class="project-list" id="project-list">
+                        <li><a href="#">Gym</a></li>
+                        <li><a href="#">Study</a></li>
+                        <li><a href="#">Work</a></li> -->
+                    </ul>
+                </div>
+                <div class="navbar-bottom">
+                    <div class="plus-container">
+                        <button id="open-modal-button">+</button>
+                    </div>
+                </div>
+            </nav>
+            <div id="container-lists" class="container-lists">
+                <div class="list">
+                    <div class="list-upper">
+                        <div class="priority-box low"></div>
+                        <input type="checkbox" id="item1" name="item1">
+                        <label for="item1"> Sample to do. Will be overwritten</label><br>
+                    </div>
+                    <div class="list-lower">
+                        <button class="button-details">Details</button>
+                        <span class="date-container">2023-1-1</span>
+                        <button class="button-edit"><svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24"
+                                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                                <path d="M16 5l3 3"></path>
+                            </svg>
+                        </button>
+                        <button class="button-delete"><svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-file-x" width="24" height="24" viewBox="0 0 24 24"
+                                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                <path d="M10 12l4 4m0 -4l-4 4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-create" id="modal-create">
+        <div class="modal-create-title">Create a new...</div>
+        <div class="modal-create-nav">
+            <a href="#" id="create-todo-section-tab">To Do</a>
+            <a href="#" id="create-project-section-tab">Project</a>
+        </div>
+        <form class="modal-create-form" id="modal-create-form">
+            <input type="text" id="title" name="title" placeholder="Title">
+            <input type="text" id="details" name="details" placeholder="Details">
+            <div class="date-container">
+                <label for="due-date">Due Date:</label>
+                <input type="date" name="due-date" id="due-date">
+            </div>
+            <div class="priority-container">
+                <label for="priority-container">Priority:</label>
+                <div class="radio-container">
+                    <input type="radio" id="priority-low" name="priority" value="low">
+                    <label for="priority">Low</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="priority-med" name="priority" value="med">
+                    <label for="priority">Medium</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="priority-high" name="priority" value="high">
+                    <label for="priority">High</label>
+                </div>
+            </div>
+            <input type="submit" value="Add To Do">
+        </form>
+    </div>
+    <div class="details-container" id="details-container">
+        <div class="details-title">Title</div>
+        <div class="details-project">
+            <label for="">Project:</label>
+            <span>Today</span>
+        </div>
+        <div class="details-priority">
+            <label for="">Priority:</label>
+            <span>Medium</span>
+        </div>
+        <div class="details-due-date">
+            <label for="">Due Date:</label>
+            <span>December 21st, 2022</span>
+        </div>
+        <div class="details-details">
+            <label for="">Details:</label>
+            <span>Some random detail</span>
+        </div>
+    </div>
+
+    <div class="edit-details-container" id="edit-details-container">
+        <form class="modal-create-form" id="modal-create-form">
+            <h3>Edit To Do</h3>
+            <input type="text" id="title-edit" name="title-edit" placeholder="Title">
+            <input type="text" id="details-edit" name="details-edit" placeholder="Details">
+            <div class="date-container">
+                <label for="due-date">Due Date:</label>
+                <input type="date" name="due-date-edit" id="due-date-edit">
+            </div>
+            <div class="priority-container">
+                <label for="priority-container">Priority:</label>
+                <div class="radio-container">
+                    <input type="radio" id="priority-low-edit" name="priority-edit" value="low" checked>
+                    <label for="priority">Low</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="priority-med-edit" name="priority-edit" value="med">
+                    <label for="priority">Medium</label>
+                </div>
+                <div class="radio-container">
+                    <input type="radio" id="priority-hig-edit" name="priority-edit" value="high">
+                    <label for="priority">High</label>
+                </div>
+            </div>
+            <input type="submit" value="Edit">
+        </form>
+    </div>
+    <script src="./bundle.js"></script>
+</body>
+
+</html>
